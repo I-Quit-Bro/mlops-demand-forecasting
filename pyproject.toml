@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forecast"
+version = "0.1.0"
+description = "Demand forecasting model with CI/CD and safe promotion"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "joblib",
+    "pyyaml",
+    "fastapi",
+    "uvicorn",
+    "pydantic"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "httpx"]
+
+[project.scripts]
+forecast-train = "forecast.pipeline.train_pipeline:main"
+forecast-make-sample = "forecast.pipeline.make_sample:main"
+forecast-registry = "forecast.registry:main"
+forecast-fetch-data = "forecast.pipeline.fetch_data:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

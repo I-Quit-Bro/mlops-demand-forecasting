@@ -1,0 +1,18 @@
+data:
+  raw_path: data/raw/retail_sales.csv   # .csv.gz also works; pandas reads it directly
+  date_column: date
+  target_column: sales
+  # Optional, used by `forecast-fetch-data` on a fresh machine:
+  # source_url: https://github.com/<you>/<repo>/releases/download/data-v1/retail_sales.csv.gz
+  # sha256: <checksum of that file>
+
+training:
+  holdout_days: 90
+  ridge_alpha: 0.01
+  lags: [1, 7, 14, 28, 364]   # must include 7 (used by the seasonal-naive baseline)
+  rolling_windows: [7, 28]
+
+serving:
+  history_path: data/raw/retail_sales.csv   # override with FORECAST_HISTORY_PATH
+
+artifacts_dir: artifacts

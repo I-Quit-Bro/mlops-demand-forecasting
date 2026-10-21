@@ -1,0 +1,12 @@
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# data and generated files never go in git
+data/raw/*
+!data/raw/.gitkeep
+artifacts/
+logs/
