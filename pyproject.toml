@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff", "httpx"]
+dev = ["pytest", "ruff", "httpx2"]
 
 [project.scripts]
 forecast-train = "forecast.pipeline.train_pipeline:main"
